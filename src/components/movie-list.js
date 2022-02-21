@@ -8,19 +8,29 @@ export default class MovieList extends React.Component {
             {
                 title: "The Matrix",
                 plot: "Neo and Trinity do some cool things",
-                reviews: [
-                    "The movie was pretty good - some old guy",
-                    "KEANU!!!!! - Bill"
-                ]
+                reviews: []
             },
             {
                 title: "Star Wars",
-                plot: "Lot's of space and a dog that walks upright"
+                plot: "Lot's of space and a dog that walks upright",
+                reviews: []
+            },
+            {
+                title: "Shaun of the Dead",
+                plot: "A British zombie comedy!  What else can you ask for?",
+                reviews: []
             }
         ]
+        let arr;
+        arr = movies.map( (movie, index ) => 
+            <Movie title={movie.title} plot={movie.plot} reviews={movie.reviews} key={index} />
+        )
+        
 
         return(
-            <Movie {...{movies: movies}}/>
+            <div>
+                { arr }
+            </div>
         )
-    }
+    } 
 }

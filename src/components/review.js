@@ -7,6 +7,7 @@ export default class Review extends React.Component {
             reviews: props.reviews
         }
     }
+
     render() {
         let reviewsArray;
         if (this.state.reviews) {
@@ -14,11 +15,15 @@ export default class Review extends React.Component {
             <li className="list-group-item" key={index}>{review}</li>
             )
         }
-        return(
+        return (
+          <div>
             <ul className="list-group list-group-flush">
-                <li className="list-group-item"><strong>Reviews</strong></li>
-                {reviewsArray}
+              <li className="list-group-item">
+                <strong>Reviews</strong>
+              </li>
+              {reviewsArray}
             </ul>
-        ) 
+          </div>
+        ); 
     }
 }

@@ -1,6 +1,5 @@
 import React from "react";
 import Review from "./review";
-import ReviewButton from "./review-button";
 
 export default class ReviewList extends React.Component {
     constructor(props) {
@@ -14,7 +13,6 @@ export default class ReviewList extends React.Component {
             <div>
                 <hr />
                 <Review reviews={this.state.reviews} />
-                <ReviewButton />
             </div>
         )
     }
