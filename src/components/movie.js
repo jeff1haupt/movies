@@ -7,6 +7,7 @@ export default class Movie extends React.Component {
         super(props);
         this.state = {
             title: props.title,
+            image: props.image,
             plot: props.plot,
             reviews: props.reviews
         }
@@ -17,7 +18,8 @@ export default class Movie extends React.Component {
         let newReview = e.target.previousElementSibling.previousElementSibling.previousElementSibling.value
         this.setState( state => {
             if ( state.title === e.target.name ) {
-                return {reviews: state.reviews.push(newReview) }
+                state.reviews.push(newReview)
+                return {reviews: state.reviews }
             }
         })
 
@@ -29,7 +31,8 @@ export default class Movie extends React.Component {
                 <div className="card mx-auto" style={{ width: "80%" }}>
                     <div className="card-body">
                         <h5 className="card-title">{this.state.title}</h5>
-                        <p className="card-text">{this.state.plot}</p>
+                        <p className="card-text">
+                            <img src={this.state.image} alt="iron man" /><br />{this.state.plot}</p>
                     </div>
                     <ReviewList reviews={this.state.reviews} />
                     <ReviewButton onClick={ (e) => this.setReviews(e) } name={this.state.title} />
